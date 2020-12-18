@@ -3,17 +3,17 @@
   box-sizing: border-box;
   display: block;
   width: 100%;
-}
-.NavItem a {
-  color: brown;
-  text-decoration: none;
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  &:hover,
-  &:active,
-  &.active {
-    color: blue;
+  a {
+    color: brown;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    &:hover,
+    &:active,
+    &.active {
+      color: blue;
+    }
   }
 }
 
@@ -24,20 +24,20 @@
     height: 100%;
     width: auto;
     align-items: center;
-  }
-  .NavItem a {
-    color: white;
-    height: 100%;
-    padding: 16px 10px;
-    border-bottom: 4px solid transparent;
-    display: block;
-
-    &:hover,
-    &:active,
-    &.active {
-      background-color: grey;
-      border-bottom: 4px solid blue;
+    a {
       color: white;
+      height: 100%;
+      padding: 16px 10px;
+      border-bottom: 4px solid transparent;
+      display: block;
+
+      &:hover,
+      &:active,
+      &.active {
+        background-color: grey;
+        border-bottom: 4px solid blue;
+        color: white;
+      }
     }
   }
 }
