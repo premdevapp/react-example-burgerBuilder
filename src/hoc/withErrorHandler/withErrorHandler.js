@@ -9,12 +9,15 @@ const ErrorHandler = (WrappedComponent, axiosInstance) => {
       error: null,
     };
 
+    //UNSAFE_componentWillMount dont in strict mode
     componentDidMount() {
-      axiosInstance.interceptors.request.use((request) => {
-        this.setState({ error: null });
-        return request;
-      });
-      axiosInstance.interceptors.response.use(
+      this.reqInterceptor = axiosInstance.interceptors.request.use(
+        (request) => {
+          this.setState({ error: null });
+          return request;
+        }
+      );
+      this.resInterceptor = axiosInstance.interceptors.response.use(
         (response) => {
           return response;
         },
@@ -25,6 +28,13 @@ const ErrorHandler = (WrappedComponent, axiosInstance) => {
         }
       );
     }
+
+    componentWillUnmount() {
+      //console.log("Will UnMount", this.reqInterceptor, this.resInterceptor);
+      axiosInstance.interceptors.request.eject(this.reqInterceptor);
+      axiosInstance.interceptors.response.eject(this.resInterceptor);
+    }
+
     errorConfirmed = () => {
       this.setState({ error: null });
     };
