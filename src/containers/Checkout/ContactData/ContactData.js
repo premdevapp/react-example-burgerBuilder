@@ -37,7 +37,7 @@ class ContactData extends Component {
           country: "India",
         },
         email: "test@test.com",
-        phone: "77777777777",
+        phone: "+917777777777",
       },
       deliveryMethod: "fastest",
     };
