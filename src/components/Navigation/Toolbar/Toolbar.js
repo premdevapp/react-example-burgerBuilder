@@ -11,7 +11,7 @@ const toolbar = (props) => {
     <header className={classes.Toolbar}>
       <Logo height="80%" />
       <nav className={classes.Desktop}>
-        <NavigationItems />
+        <NavigationItems isAuthenticated={props.isAuth} />
       </nav>
     </header>
   ) : (
@@ -19,7 +19,7 @@ const toolbar = (props) => {
       <DrawerToggle clicked={props.close} />
       <Logo height="80%" />
       <nav className={classes.Desktop}>
-        <NavigationItems />
+        <NavigationItems isAuthenticated={props.isAuth} />
       </nav>
     </header>
   );
