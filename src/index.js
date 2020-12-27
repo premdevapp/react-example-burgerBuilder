@@ -12,7 +12,7 @@ import burgerBuilderReducer from "./store/reducers/burgerBuilder";
 import orderReducer from "./store/reducers/order";
 import authReducer from "./store/reducers/auth";
 
-import logoutSaga from "./store/sagas/auth";
+import watchAuthSaga from "./store/sagas/index";
 import reportWebVitals from "./reportWebVitals";
 
 const composeEnhancers =
@@ -33,7 +33,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
 );
 
-//sagaMiddleware.run(logoutSaga);
+sagaMiddleware.run(watchAuthSaga);
 
 ReactDOM.render(
   <React.StrictMode>
