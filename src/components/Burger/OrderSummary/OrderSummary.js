@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 
+import Aux from "../../../hoc/_Aux/_Aux";
 import Button from "../../UI/Button/Button";
 
-import Aux from "../../../hoc/Auxilary";
-
 class OrderSummary extends Component {
-  componentDidUpdate() {
-    console.log("OrderSummary will Update");
-  }
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(
       (igKey) => {
         return (
           <li key={igKey}>
-            <span style={{ textTransform: "capitalize" }}>{igKey}</span> :{" "}
+            <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
             {this.props.ingredients[igKey]}
           </li>
         );
@@ -23,17 +19,17 @@ class OrderSummary extends Component {
     return (
       <Aux>
         <h3>Your Order</h3>
-        <p>A delicious Burger with following ingredients</p>
+        <p>A delicious burger with the following ingredients:</p>
         <ul>{ingredientSummary}</ul>
         <p>
-          <strong>Total: ${this.props.price.toFixed(2)}</strong>
+          <strong>Total Price: {this.props.price.toFixed(2)}</strong>
         </p>
         <p>Continue to Checkout?</p>
-        <Button clicked={this.props.purchaseCancel} buttonType="Danger">
-          Cancel
+        <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
+          CANCEL
         </Button>
-        <Button clicked={this.props.purchaseContinue} buttonType="Success">
-          Continue
+        <Button btnType="Success" clicked={this.props.purchaseContinued}>
+          CONTINUE
         </Button>
       </Aux>
     );
